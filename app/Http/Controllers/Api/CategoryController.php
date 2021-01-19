@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Requests\Api\CategoryRequest;
 use App\Models\Category;
-use Illuminate\Http\Request;
+
+use App\Http\Requests\Api\CategoryRequest;
 
 class CategoryController extends BaseController
 {
     public function __construct()
     {
-        $this->middleware('admin.auth')->except(['index', 'show']);
+        $this->middleware('admin.auth')
+            ->except(['index', 'show']);
+
         parent::__construct();
     }
 

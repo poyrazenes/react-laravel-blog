@@ -56,9 +56,6 @@ class Response
 
     public function respond(): JsonResponse
     {
-        return response()->json(
-            $this->response,
-            $this->response->code
-        );
+        return response()->json($this->response);
     }
 }

@@ -21,5 +21,5 @@ Route::middleware('api.auth')->group(function () {
         Route::post('refresh', 'AuthController@refresh');
     });
 
-    Route::resource('/categories', 'CategoryController')->only(['index', 'show']);
+    Route::resource('/categories', 'CategoryController')->except(['create', 'edit']);
 });
