@@ -23,4 +23,5 @@ Route::middleware('api.auth')->group(function () {
 
     Route::resource('/categories', 'CategoryController')->except(['create', 'edit']);
     Route::resource('/tags', 'TagController')->except(['create', 'edit']);
+    Route::resource('/posts', 'PostController')->except(['create', 'edit']);
 });

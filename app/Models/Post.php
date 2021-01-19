@@ -9,6 +9,11 @@ class Post extends Base
 {
     use HasFactory;
 
+    protected $fillable = [
+        'category_id', 'user_id', 'title',
+        'slug', 'content', 'image', 'published'
+    ];
+
     protected $appends = ['image_url', 'date_formatted', 'excerpt'];
 
     /**
@@ -62,5 +67,18 @@ class Post extends Base
     public function getExcerptAttribute()
     {
         return substr(strip_tags($this->content), 0, 100);
+    }
+
+    public function getPrevAttribute()
+    {
+        return Post::where('published', true)
+            ->where('id', '<', $this->id)
+            ->orderBy('id', 'desc')->first();
+    }
+
+    public function getNextAttribute()
+    {
+        return Post::where('published', true)
+            ->where('id', '>', $this->id)->first();
     }
 }
