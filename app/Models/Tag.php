@@ -8,6 +8,8 @@ class Tag extends Base
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'slug'];
+
     public function posts()
     {
         return $this->belongsToMany(
