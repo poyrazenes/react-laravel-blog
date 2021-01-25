@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\Api\LoginRequest;
-use App\Models\Log;
 
 class AuthController extends BaseController
 {
